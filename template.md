@@ -3,12 +3,32 @@
 ## Description
 ${description}
 
-## Installation Instructions
+## Table of Contents
+* [Technologies](#technologies)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Authors](#credits)
+* [Badges](#badges)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [License](#license)
+
+## Technologies 
+
+## Installation
 ${installInstruct}
 
-## How to Use
+## Usage
 ${usage}
 
-## Contributors
-![user image](${imageURL})
-${username} | ${email}
+## Authors
+![user image](${imageURL}) <br>
+[${username}](${profileURL}) | ${email}
+
+## Badges
+
+## Contributing
+
+## Tests
+
+## License

@@ -36,11 +36,11 @@ inquirer
             name: "usage",
             message: "How do you use this product? "
         },
-        {
-            type: "input",
-            name: "contributors",
-            message: "Who contributed to this project? "
-        },
+        // {
+        //     type: "input",
+        //     name: "contributors",
+        //     message: "Who contributed to this project? "
+        // },
         // still need: table of contents, badge?, license?, tests?, questions? gitHub email
     ])
     .then(function(data){
@@ -62,22 +62,44 @@ inquirer
             .then(function(response) {
                 const imageURL = `${response.data.avatar_url}&s=100`;
                 const email = response.data.email;
+                const profileURL = response.data.url;
 
-                const mdFile = dedent(`# ${projectTitle}
+                const mdFile = dedent(`
+                        # ${projectTitle}
 
-                                ## Description
-                                ${description}
+                        ## Description
+                        ${description}
 
-                                ## Installation Instructions
-                                ${installInstruct}
+                        ## Table of Contents
+                        * [Technologies Used](#technologies)
+                        * [Installation](#installation)
+                        * [Usage](#usage)
+                        * [Credits](#credits)
+                        * [Badges](#badges)
+                        * [Contributing](#contributing)
+                        * [Tests](#tests)
+                        * [License](#license)
 
-                                ## How to Use
-                                ${usage}
+                        ## Technologies
 
-                                ## Contributors
-                                ![user image](${imageURL})
-                                ${username} | ${email}`
-                                );
+                        ## Installation
+                        ${installInstruct}
+
+                        ## Usage
+                        ${usage}
+
+                        ## Credits
+                        ![user image](${imageURL}) <br>
+                        [${username}](${profileURL}) | ${email}
+
+                        ## Badges
+
+                        ## Contributing
+
+                        ## Tests
+
+                        ## License
+                        `);
 
                 // generate MD file with user input
                 return writeFileAsync("generatedRM.md", mdFile);
