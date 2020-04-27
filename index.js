@@ -42,15 +42,24 @@ inquirer
             name: "contributors",
             message: "Who contributed to this project? "
         },
-        {
-            type: "input",
-            name: "installInstruct",
-            message: "Please enter your installation instructions here: "
-        },
         // still need: table of contents, badge?, license?, tests?, questions?, gitHub pic, gitHub email
     ])
     .then(function(data){
         console.log(data);
+
+        const { username,
+        projectTitle,
+        description,
+        installInstruct,
+        usage,
+        contributors } = data;
+
+        console.log(username,
+            projectTitle,
+            description,
+            installInstruct,
+            usage,
+            contributors);
 
     })
     .catch(function(err) {
