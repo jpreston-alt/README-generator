@@ -1,18 +1,14 @@
-// initialize npm
-// install dependencies: inquirer, fs, util, axios
-// use util to create promises (writeFile)
-// inquirer - prompt user: github name, badge, project title, description, table of contents, installation, usage, license, contributing, tests, questions, github profile picture, github email
-// axios - get github picture and email with inputed github username
-// generate md file with user input
-
+// install dependencies
 const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
 const axios = require("axios");
 const dedent = require("dedent");
 
+// create promises
 const writeFileAsync = util.promisify(fs.writeFile);
 
+// use inquirer to prompt for user input
 inquirer
     .prompt([
         {
@@ -60,6 +56,7 @@ inquirer
         // const { username } = data;
         const queryUrl = `https://api.github.com/users/${username}`;
         
+        // use axios to generate user photo and email from gitHub with username
         axios
             .get(queryUrl)
             .then(function(response) {
@@ -82,10 +79,11 @@ inquirer
                                 ${username} | ${email}`
                                 );
 
+                // generate MD file with user input
                 return writeFileAsync("generatedRM.md", mdFile);
             });
-
     })
+    // catch all errors
     .catch(function(err) {
         if(err) {
             console.log(err);
