@@ -10,6 +10,8 @@ const inquirer = require("inquirer");
 const util = require("util");
 const axios = require("axios");
 
+const axiosAsync = util.promisify(axios.get);
+
 inquirer
     .prompt([
         {
@@ -45,8 +47,8 @@ inquirer
         // still need: table of contents, badge?, license?, tests?, questions?, gitHub pic, gitHub email
     ])
     .then(function(data){
-        console.log(data);
 
+        // desctrucure data object into variables
         const { username,
         projectTitle,
         description,
@@ -54,12 +56,27 @@ inquirer
         usage,
         contributors } = data;
 
-        console.log(username,
-            projectTitle,
-            description,
-            installInstruct,
-            usage,
-            contributors);
+        // const { username } = data;
+        const queryUrl = `https://api.github.com/users/${username}`;
+        
+        axios
+            .get(queryUrl)
+            .then(function(response) {
+                const imageURL = response.data.avatar_url;
+                const email = response.data.email;
+
+                const mdFile = 
+                    `# ${projectTitle}
+
+                    ## Description
+                    ${description}`
+
+                fs.writeFile("genREADME.md", mdFile, function(err) {
+                    if (err) {
+                        throw err;
+                    }
+                });
+            });
 
     })
     .catch(function(err) {
