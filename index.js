@@ -10,7 +10,8 @@ const inquirer = require("inquirer");
 const util = require("util");
 const axios = require("axios");
 
-const axiosAsync = util.promisify(axios.get);
+// const axiosAsync = util.promisify(axios.get);
+const writeFileAsync = util.promisify(fs.writeFile);
 
 inquirer
     .prompt([
@@ -58,6 +59,8 @@ inquirer
 
         // const { username } = data;
         const queryUrl = `https://api.github.com/users/${username}`;
+
+        // return axiosAsync(queryUrl);
         
         axios
             .get(queryUrl)
@@ -66,18 +69,20 @@ inquirer
                 const email = response.data.email;
 
                 const mdFile = 
-                    `# ${projectTitle}
+                `# ${ projectTitle }
 
                     ## Description
-                    ${description}`
+                    ${ description }`
 
-                fs.writeFile("genREADME.md", mdFile, function(err) {
-                    if (err) {
-                        throw err;
-                    }
-                });
+                // fs.writeFile("genREADME.md", mdFile, function(err) {
+                //     if (err) {
+                //         throw err;
+                //     }
+                // });
+
+                return writeFileAsync("genreadme.md", mdFile);
+
             });
-
     })
     .catch(function(err) {
         if(err) {
