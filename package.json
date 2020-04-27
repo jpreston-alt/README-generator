@@ -22,6 +22,7 @@
   "homepage": "https://github.com/jpreston-alt/README-generator#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "dedent": "^0.7.0",
     "inquirer": "^7.1.0",
     "util": "^0.12.2"
   }

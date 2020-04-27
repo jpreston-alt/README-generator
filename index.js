@@ -9,8 +9,8 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
 const axios = require("axios");
+const dedent = require("dedent");
 
-// const axiosAsync = util.promisify(axios.get);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 inquirer
@@ -45,7 +45,7 @@ inquirer
             name: "contributors",
             message: "Who contributed to this project? "
         },
-        // still need: table of contents, badge?, license?, tests?, questions?, gitHub pic, gitHub email
+        // still need: table of contents, badge?, license?, tests?, questions? gitHub email
     ])
     .then(function(data){
 
@@ -59,30 +59,32 @@ inquirer
 
         // const { username } = data;
         const queryUrl = `https://api.github.com/users/${username}`;
-
-        // return axiosAsync(queryUrl);
         
         axios
             .get(queryUrl)
             .then(function(response) {
-                const imageURL = response.data.avatar_url;
+                const imageURL = `${response.data.avatar_url}&s=100`;
                 const email = response.data.email;
 
-                const mdFile = 
-                `# ${ projectTitle }
+                const mdFile = dedent(`# ${projectTitle}
 
-                    ## Description
-                    ${ description }`
+                                ## Description
+                                ${description}
 
-                // fs.writeFile("genREADME.md", mdFile, function(err) {
-                //     if (err) {
-                //         throw err;
-                //     }
-                // });
+                                ## Installation Instructions
+                                ${installInstruct}
 
-                return writeFileAsync("genreadme.md", mdFile);
+                                ## How to Use
+                                ${usage}
 
+                                ## Contributors
+                                ![user image](${imageURL})
+                                ${username} | ${email}`
+                                );
+
+                return writeFileAsync("generatedRM.md", mdFile);
             });
+
     })
     .catch(function(err) {
         if(err) {
