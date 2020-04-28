@@ -8,18 +8,14 @@ ${description}
 * [Installation](#installation)
 * [Usage](#usage)
 * [Authors](#credits)
-* [Badges](#badges)
-* [Contributing](#contributing)
-* [Tests](#tests)
-* [License](#license)
-
-## Technologies 
 
 ## Installation
 ${installInstruct}
 
 ## Usage
 ${usage}
+
+## Technologies 
 
 ## Authors
 ![user image](${imageURL}) <br>

@@ -1,27 +1,34 @@
-# README Generator
+# undefined
 
 ## Description
-A command-line application for generating a README based off of user input.
+undefined
 
 ## Table of Contents
-* [Technologies Used](#technologies)
+* [Technologies](#technologies)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
-* [Badges](#badges)
-* [Contributing](#contributing)
-* [Tests](#tests)
-* [License](#license)
+* [Tests](#Tests)
+* [License](#License)
 
-## Technologies
+
 
 ## Installation
-Download repo. Install dependencies.
+undefined
 
 ## Usage
-Answer the prompted questions about your project. A README will then be generated based on those answers.
+undefined
 
-## Credits
+## Technologies
+* HTML
+* CSS
+* JavaScript
+* jQuery
+* Bootstrap
+* Bulma
+
+
+## Authors
 ![user image](https://avatars1.githubusercontent.com/u/58855401?v=4&s=100) <br>
 [jpreston-alt](https://api.github.com/users/jpreston-alt) | null
 

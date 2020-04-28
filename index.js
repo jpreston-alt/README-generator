@@ -7,6 +7,7 @@ const dedent = require("dedent");
 
 // create promises
 const writeFileAsync = util.promisify(fs.writeFile);
+const readFileAsync = util.promisify(fs.readFile);
 
 // use inquirer to prompt for user input
 inquirer
@@ -16,32 +17,45 @@ inquirer
             name: "username",
             message: "Please enter your GitHub username: "
         },
-        {
-            type: "input",
-            name: "projectTitle",
-            message: "Please enter your project title: "
-        },
-        {
-            type: "input",
-            name: "description",
-            message: "Please enter a description of your project: "
-        },
-        {
-            type: "input",
-            name: "installInstruct",
-            message: "Please enter your installation instructions here: "
-        },
-        {
-            type: "input",
-            name: "usage",
-            message: "How do you use this product? "
-        },
         // {
         //     type: "input",
-        //     name: "contributors",
-        //     message: "Who contributed to this project? "
+        //     name: "projectTitle",
+        //     message: "Please enter your project title: "
         // },
-        // still need: table of contents, badge?, license?, tests?, questions? gitHub email
+        // {
+        //     type: "input",
+        //     name: "description",
+        //     message: "Please enter a description of your project: "
+        // },
+        // {
+        //     type: "input",
+        //     name: "installInstruct",
+        //     message: "Please enter your installation instructions here: "
+        // },
+        // {
+        //     type: "input",
+        //     name: "usage",
+        //     message: "How do you use this product? "
+        // },
+        // {
+        //     type: "input",
+        //     name: "technologies",
+        //     message: "Which technologies did you use? (item1, item2, ... etc.) "
+        // },
+        {
+            type: 'checkbox',
+            message: 'Which technologies did you use?',
+            name: 'technologies',
+            choices: ["HTML", "CSS", "JavaScript", "jQuery", "Bootstrap", "Bulma", "Node.js", "AJAX"]
+        },
+        {
+            type: 'checkbox',
+            message: 'What other sections would you like to include in your README?',
+            name: 'extraSections',
+            choices: ["Contributing", "Badges", "Tests", "License", "None of These"]
+        },
+        
+        // still need: badge?, license?, tests?, questions? gitHub email
     ])
     .then(function(data){
 
@@ -51,7 +65,9 @@ inquirer
         description,
         installInstruct,
         usage,
-        contributors } = data;
+        contributors,
+        technologies,
+        extraSections } = data;
 
         // const { username } = data;
         const queryUrl = `https://api.github.com/users/${username}`;
@@ -71,16 +87,12 @@ inquirer
                         ${description}
 
                         ## Table of Contents
-                        * [Technologies Used](#technologies)
+                        * [Technologies](#technologies)
                         * [Installation](#installation)
                         * [Usage](#usage)
                         * [Credits](#credits)
-                        * [Badges](#badges)
-                        * [Contributing](#contributing)
-                        * [Tests](#tests)
-                        * [License](#license)
+                        ${renderTOC(extraSections)}
 
-                        ## Technologies
 
                         ## Installation
                         ${installInstruct}
@@ -88,7 +100,10 @@ inquirer
                         ## Usage
                         ${usage}
 
-                        ## Credits
+                        ## Technologies
+                        ${renderTechs(technologies)}  
+
+                        ## Authors
                         ![user image](${imageURL}) <br>
                         [${username}](${profileURL}) | ${email}
 
@@ -101,6 +116,14 @@ inquirer
                         ## License
                         `);
 
+                // fs.readFile('template.md', "utf8", (err, data) => {
+                //     if (err) throw err;
+                //     // console.log(data);
+
+                //     return writeFileAsync("generatedRM.md", data);
+
+                // });
+
                 // generate MD file with user input
                 return writeFileAsync("generatedRM.md", mdFile);
             });
@@ -111,3 +134,23 @@ inquirer
             console.log(err);
         };
     });
+
+
+
+function renderTechs(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = `* ${arr[i]}\n`
+    };
+
+    let list = arr.join("");
+    return list;
+};
+
+function renderTOC(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = `* [${arr[i]}](#${arr[i]})\n`
+    };
+
+    let list = arr.join("");
+    return list;
+}
