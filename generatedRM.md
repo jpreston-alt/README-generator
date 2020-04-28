@@ -11,7 +11,7 @@ undefined
 * [Contributing](#Contributing)
 * [Badges](#Badges)
 * [Tests](#Tests)
-
+* [License](#License)
 
 
 ## Installation
@@ -35,3 +35,5 @@ undefined
 ## Badges
 
 ## Tests
+
+## License
