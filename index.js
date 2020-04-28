@@ -69,6 +69,9 @@ inquirer
         technologies,
         extraSections } = data;
 
+        let headers = renderHeaders(extraSections);
+        let toc = renderTOC(extraSections);
+
         // const { username } = data;
         const queryUrl = `https://api.github.com/users/${username}`;
         
@@ -91,7 +94,7 @@ inquirer
                         * [Installation](#installation)
                         * [Usage](#usage)
                         * [Credits](#credits)
-                        ${renderTOC(extraSections)}
+                        ${toc}
 
 
                         ## Installation
@@ -107,22 +110,10 @@ inquirer
                         ![user image](${imageURL}) <br>
                         [${username}](${profileURL}) | ${email}
 
-                        ## Badges
+                        ${headers}
 
-                        ## Contributing
 
-                        ## Tests
-
-                        ## License
                         `);
-
-                // fs.readFile('template.md', "utf8", (err, data) => {
-                //     if (err) throw err;
-                //     // console.log(data);
-
-                //     return writeFileAsync("generatedRM.md", data);
-
-                // });
 
                 // generate MD file with user input
                 return writeFileAsync("generatedRM.md", mdFile);
@@ -137,20 +128,37 @@ inquirer
 
 
 
+// renders technologies list
 function renderTechs(arr) {
     for (let i = 0; i < arr.length; i++) {
         arr[i] = `* ${arr[i]}\n`
     };
-
     let list = arr.join("");
     return list;
 };
 
+// renders table of contents
 function renderTOC(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] = `* [${arr[i]}](#${arr[i]})\n`
+    let list;
+    if (arr.includes("None of These")) {
+        list = "";
+    } else {
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = `* [${arr[i]}](#${arr[i]})\n`
+        };
+        list = arr.join("");
     };
-
-    let list = arr.join("");
     return list;
-}
+};
+
+function renderHeaders(arr) {
+    let list = ""
+    if (arr.includes("None of These")) {
+        list = "";
+    } else {
+        for (var i = 0; i < arr.length; i++) {
+            list += `## ${arr[i]}\n\n`;
+        };
+    }
+    return list;
+};
