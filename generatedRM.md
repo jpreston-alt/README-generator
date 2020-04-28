@@ -1,7 +1,7 @@
-# undefined
+# README generator
 
 ## Description
-undefined
+Generate a README based on user input
 
 ## Table of Contents
 * [Technologies](#technologies)
@@ -10,30 +10,29 @@ undefined
 * [Credits](#credits)
 * [Contributing](#Contributing)
 * [Badges](#Badges)
-* [Tests](#Tests)
 * [License](#License)
 
 
 ## Installation
-undefined
+Install it
 
 ## Usage
-undefined
+Use it
 
 ## Technologies
-* HTML
-* CSS
 * JavaScript
+* Node.js
 
 
-## Authors
+## Credits
 ![user image](https://avatars1.githubusercontent.com/u/58855401?v=4&s=100) <br>
 [jpreston-alt](https://api.github.com/users/jpreston-alt) | null
 
-## Contributing
-
-## Badges
-
-## Tests
+## Contribution
+Contribution goes here
 
 ## License
+License goes here
+
+## Badges
+Badges go here

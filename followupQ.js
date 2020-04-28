@@ -1,3 +1,7 @@
+// this module contains functions pertaining to follow up questions
+// user is asked which other sections they would like to include, then sections are rendered and other questions are prompted based on that answer.
+
+// renders table of contents to include new sections
 function renderTOC(arr) {
     let list;
     if (arr.includes("None of These")) {
@@ -11,18 +15,18 @@ function renderTOC(arr) {
     return list;
 };
 
+// renders sections in readme
 function renderSections(arr) {
-    let list = ""
+    let list = "";
     if (arr.includes("None of These")) {
         list = "";
     } else {
         for (var i = 0; i < arr.length; i++) {
-            list += `## ${arr[i]}\n\n`;
-        };
+            list += `## ${arr[i].header}\n${arr[i].body}\n\n`;
+        }
     }
     return list;
 };
-
 
 // ask follow up questions based on what sections user wants to include
 function extraQarr(arr) {

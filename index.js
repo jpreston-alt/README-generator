@@ -8,12 +8,8 @@ const followupQ = require("./followupQ");
 
 // create promises
 const writeFileAsync = util.promisify(fs.writeFile);
-const readFileAsync = util.promisify(fs.readFile);
 
-// let questionsArr = [];
-
-
-// use inquirer to prompt for user input
+// prompt first set of questions
 inquirer
     .prompt([
         {
@@ -21,26 +17,26 @@ inquirer
             name: "username",
             message: "Please enter your GitHub username: "
         },
-        // {
-        //     type: "input",
-        //     name: "projectTitle",
-        //     message: "Please enter your project title: "
-        // },
-        // {
-        //     type: "input",
-        //     name: "description",
-        //     message: "Please enter a description of your project: "
-        // },
-        // {
-        //     type: "input",
-        //     name: "installInstruct",
-        //     message: "Please enter your installation instructions here: "
-        // },
-        // {
-        //     type: "input",
-        //     name: "usage",
-        //     message: "How do you use this product? "
-        // },
+        {
+            type: "input",
+            name: "projectTitle",
+            message: "Please enter your project title: "
+        },
+        {
+            type: "input",
+            name: "description",
+            message: "Please enter a description of your project: "
+        },
+        {
+            type: "input",
+            name: "installInstruct",
+            message: "Please enter your installation instructions here: "
+        },
+        {
+            type: "input",
+            name: "usage",
+            message: "How do you use this product? "
+        },
         {
             type: 'checkbox',
             message: 'Which technologies did you use?',
@@ -65,14 +61,36 @@ inquirer
         technologies,
         extraSections } = data;
 
+        // questions array is generated based on users answer to extraSections
         const questionsArr = followupQ.extraQarr(extraSections);
 
+        // prompt user for answers to questions array
         inquirer
             .prompt(questionsArr)
             .then(function (data) {
                 const { license, contributing, test, badges } = data;
 
-                let headers = followupQ.renderSections(extraSections);
+                // new section object constructor
+                function Section(header, body) {
+                    this.header = header;
+                    this.body = body;
+                };
+
+                // new section instances
+                const licenseSection = new Section("License", license);
+                const contributionSection = new Section("Contribution", contributing);
+                const testSection = new Section("Tests", test);
+                const badgesSection = new Section("Badges", badges);
+                let sectionsArr = [];
+
+                // push instances to array
+                sectionsArr.push(contributionSection, licenseSection, testSection, badgesSection);
+                let filtSectArr = sectionsArr.filter(function(el) {
+                    return el.body !== undefined;
+                });
+
+                // render array of new sections
+                let newSections = followupQ.renderSections(filtSectArr);
                 let toc = followupQ.renderTOC(extraSections);
                 let techsList = renderTechs(technologies);
 
@@ -106,11 +124,11 @@ inquirer
                         ## Technologies
                         ${techsList}  
 
-                        ## Authors
+                        ## Credits
                         ![user image](${imageURL}) <br>
                         [${username}](${profileURL}) | ${email}
 
-                        ${headers}
+                        ${newSections}
                         `);
 
                         // generate MD file with user input
@@ -125,8 +143,6 @@ inquirer
             console.log(err);
         };
     });
-
-
 
 // renders technologies list
 function renderTechs(arr) {
