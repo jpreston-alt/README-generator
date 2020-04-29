@@ -4,7 +4,7 @@
 // renders table of contents to include new sections
 function renderTOC(arr) {
     let list;
-    if (arr.includes("None of These")) {
+    if (arr === []) {
         list = "";
     } else {
         for (let i = 0; i < arr.length; i++) {
@@ -15,10 +15,24 @@ function renderTOC(arr) {
     return list;
 };
 
+// renders sections array to be passed into render sections function
+function renderSectArr(arr) {
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].body == undefined ||
+            arr[i].body.includes("undefined")) {
+
+        } else {
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+};
+
 // renders sections in readme
 function renderSections(arr) {
     let list = "";
-    if (arr.includes("None of These")) {
+    if (arr === []) {
         list = "";
     } else {
         for (var i = 0; i < arr.length; i++) {
@@ -34,21 +48,23 @@ function extraQarr(arr) {
     let questionsArr = [];
 
     let licenseQ = {
-        type: "input",
+        type: "list",
         name: "license",
-        message: "What license would you like to include? "
+        message: "What kind of license should your project have? ",
+        choices: ["MIT", "GNU GPLv3", "ISC", "Apache License 2.0"]
     };
 
     let testQ = {
         type: "input",
         name: "test",
-        message: "How do you test? "
+        message: "What command should be run to run tests? ",
+        default: "npm test"
     };
 
     let contributingQ = {
         type: "input",
         name: "contributing",
-        message: "How do you contribute? "
+        message: "What does the user need to know about contributing to the repo? "
     };
 
     let badgesQ = {
@@ -70,4 +86,4 @@ function extraQarr(arr) {
     return questionsArr;
 };
 
-module.exports = {renderTOC, renderSections, extraQarr};
+module.exports = {renderTOC, renderSections, extraQarr, renderSectArr};

@@ -1,38 +1,54 @@
-# README generator
+# README Generator
+### [Project Link](https://github.com/jpreston-alt/README Generator)
+![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Description
-Generate a README based on user input
+generate a readme
 
 ## Table of Contents
 * [Technologies](#technologies)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credits)
+* [Questions](#questions)
 * [Contributing](#Contributing)
-* [Badges](#Badges)
+* [Tests](#Tests)
 * [License](#License)
 
 
 ## Installation
-Install it
+To install necessary dependencies, run the following command:
+
+```
+npm install
+```
 
 ## Usage
-Use it
+Answer questions, create readme
+![](./assets/code-quiz.gif)
 
 ## Technologies
 * JavaScript
 * Node.js
 
 
-## Credits
-![user image](https://avatars1.githubusercontent.com/u/58855401?v=4&s=100) <br>
-[jpreston-alt](https://api.github.com/users/jpreston-alt) | null
-
 ## Contribution
-Contribution goes here
+hit me up
 
 ## License
-License goes here
+This project is licensed under the MIT license.
 
-## Badges
-Badges go here
+## Tests
+To run tests, run the following command: 
+``` 
+npm test 
+```
+
+
+
+## Questions
+​
+If you have any questions about the repo, open an issue or contact me:
+
+On GitHub: [jpreston-alt](https://api.github.com/users/jpreston-alt) | Via Email: joannappreston@gmail.com
+
+![user image](https://avatars1.githubusercontent.com/u/58855401?v=4&s=100)
