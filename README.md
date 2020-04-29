@@ -3,7 +3,7 @@
 
 
 ## Description
-Generate a README based off of user input.
+Generates a README based on user input
 
 ## Table of Contents
 * [Technologies](#technologies)
@@ -22,10 +22,10 @@ To install necessary dependencies, run the following command:
 npm install
 ```
 
-![Depedencies Shield](https://img.shields.io/david/jpreston-alt/readme-generator)
+![Dependencies Shield](https://img.shields.io/david/jpreston-alt/README-Generator)
 
 ## Usage
-Answer the questions, renders README.
+Answer prompted questions
 
 ![](./assets/code-quiz.gif)
 
@@ -37,7 +37,7 @@ Answer the questions, renders README.
 
 
 ## Contribution
-Hit me up.
+Hit me up
 
 ## License
 This project is licensed under the MIT license. 

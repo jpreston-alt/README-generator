@@ -132,7 +132,7 @@ inquirer
                         ${install}
                         \`\`\`
 
-                        ![Depedencies Shield](https://img.shields.io/david/${username}/readme-generator)
+                        ![Dependencies Shield](https://img.shields.io/david/${username}/${projectTitle})
 
                         ## Usage
                         ${usage}\n
