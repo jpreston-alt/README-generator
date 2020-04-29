@@ -1,9 +1,9 @@
-# README Generator
-### [Project Link](https://github.com/jpreston-alt/README Generator)
-![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+# README-Generator
+![GitHub last commit](https://img.shields.io/github/last-commit/jpreston-alt/README-Generator) [![Link to Repo](https://img.shields.io/badge/Link%20to%20Repo-blue.svg)](https://github.com/jpreston-alt/README-Generator)
+
 
 ## Description
-generate a readme
+Generate a README based off of user input.
 
 ## Table of Contents
 * [Technologies](#technologies)
@@ -22,21 +22,27 @@ To install necessary dependencies, run the following command:
 npm install
 ```
 
+![Depedencies Shield](https://img.shields.io/david/jpreston-alt/readme-generator)
+
 ## Usage
-Answer questions, create readme
+Answer the questions, renders README.
+
 ![](./assets/code-quiz.gif)
 
 ## Technologies
-![GitHub top language](https://img.shields.io/github/languages/top/jpreston-alt/README-generator)
 * JavaScript
 * Node.js
 
+![GitHub top language](https://img.shields.io/github/languages/top/jpreston-alt/README-Generator)
+
 
 ## Contribution
-hit me up
+Hit me up.
 
 ## License
-This project is licensed under the MIT license.
+This project is licensed under the MIT license. 
+
+![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Tests
 To run tests, run the following command: 

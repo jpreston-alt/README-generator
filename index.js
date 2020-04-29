@@ -25,7 +25,7 @@ inquirer
         {
             type: "input",
             name: "projectTitle",
-            message: "What is the name of your project? "
+            message: "What is the name of your project repository? "
         },
         {
             type: "input",
@@ -46,7 +46,7 @@ inquirer
         {
             type: "input",
             name: "projectIMG",
-            message: "Please include an image or a giph. Enter the filepath here: "
+            message: "Please include an image or a gif. Enter the filepath here: "
         },
         {
             type: 'checkbox',
@@ -58,7 +58,7 @@ inquirer
             type: 'checkbox',
             message: "What other sections would you like to include in your README? (Press ENTER if you don't want to include any)",
             name: 'extraSections',
-            choices: ["Contributing", "Badges", "Tests", "License"],
+            choices: ["Contributing", "Tests", "License"],
         }
     ])
     .then(function(data){
@@ -90,12 +90,11 @@ inquirer
                 };
 
                 // new section instances - sections are rendered based on user picks
-                const licenseSection = new Section("License", `This project is licensed under the ${license} license.`);
+                const licenseSection = new Section("License", dedent(`This project is licensed under the ${license} license. \n\n ![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`));
                 const contributionSection = new Section("Contribution", contributing);
                 const testSection = new Section("Tests", dedent(`To run tests, run the following command: \n \`\`\` \n ${test} \n \`\`\` `));
-                const badgesSection = new Section("Badges", badges);
 
-                let sectionsArr = [contributionSection, licenseSection, testSection, badgesSection];
+                let sectionsArr = [contributionSection, licenseSection, testSection];
 
                 // render new sections, table of conetents, and technologies list
                 let filterSectArr = followUpMod.renderSectArr(sectionsArr);
@@ -113,8 +112,8 @@ inquirer
 
                         const mdFile = dedent(`
                         # ${projectTitle}
-                        ### [Project Link](https://github.com/${username}/${projectTitle})
-                        ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+                        ![GitHub last commit](https://img.shields.io/github/last-commit/${username}/${projectTitle}) [![Link to Repo](https://img.shields.io/badge/Link%20to%20Repo-blue.svg)](https://github.com/${username}/${projectTitle})
+                        
 
                         ## Description
                         ${description}
@@ -133,12 +132,15 @@ inquirer
                         ${install}
                         \`\`\`
 
+                        ![Depedencies Shield](https://img.shields.io/david/${username}/readme-generator)
+
                         ## Usage
                         ${usage}\n
                         ![](${projectIMG})
 
                         ## Technologies
-                        ${techsList}  
+                        ${techsList} 
+                        ![GitHub top language](https://img.shields.io/github/languages/top/${username}/${projectTitle})\n
 
                         ${newSections}
 
@@ -150,7 +152,7 @@ inquirer
                         `);
 
                         // generate MD file with user input
-                        return writeFileAsync("generatedRM.md", mdFile);
+                        return writeFileAsync("README.md", mdFile);
                     });
             })
     })

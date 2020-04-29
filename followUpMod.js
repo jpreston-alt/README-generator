@@ -67,20 +67,12 @@ function extraQarr(arr) {
         message: "What does the user need to know about contributing to the repo? "
     };
 
-    let badgesQ = {
-        type: "input",
-        name: "badges",
-        message: "What badges would you like to include? "
-    };
-
     if (arr.includes("License")) {
         questionsArr.push(licenseQ);
     } if (arr.includes("Contributing")) {
         questionsArr.push(contributingQ);
     } if (arr.includes("Tests")) {
         questionsArr.push(testQ);
-    } if (arr.includes("Badges")) {
-        questionsArr.push(badgesQ);
     };
 
     return questionsArr;
