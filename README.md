@@ -1,8 +1,8 @@
-# README-Generator
-![GitHub last commit](https://img.shields.io/github/last-commit/jpreston-alt/README-Generator) [![Link to Repo](https://img.shields.io/badge/Link%20to%20Repo-blue.svg)](https://github.com/jpreston-alt/README-Generator)
+# README-GENERATOR
+![GitHub last commit](https://img.shields.io/github/last-commit/jpreston-alt/README-GENERATOR) [![Link to Repo](https://img.shields.io/badge/Link%20to%20Repo-blue.svg)](https://github.com/jpreston-alt/README-GENERATOR)
 
 ## Description
-Generate a README based on user input
+Generates a readme based on user input
 ## Table of Contents
 * [Usage](#usage)
 * [Technologies](#technologies)
@@ -13,21 +13,21 @@ Generate a README based on user input
 * [License](#License)
 
 ## Usage
-answer the questions
+answer prompted questions
 
 ![](./assets/code-quiz.gif)
 ## Technologies
 * JavaScript
 * Node.js
 
-![GitHub top language](https://img.shields.io/github/languages/top/jpreston-alt/README-Generator)
+![GitHub top language](https://img.shields.io/github/languages/top/jpreston-alt/README-GENERATOR)
 
 ## Installation
 To install necessary dependencies, run the following command:
 ```
 npm install
 ```
-![Dependencies Shield](https://img.shields.io/david/jpreston-alt/README-Generator)
+![Dependencies Shield](https://img.shields.io/david/jpreston-alt/README-GENERATOR)
 
 ## License
 This project is licensed under the MIT license. 

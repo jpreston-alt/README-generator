@@ -9,6 +9,7 @@ const followUpMod = require("./followUpMod");
 // create promises
 const writeFileAsync = util.promisify(fs.writeFile);
 
+// create question instances
 let usernameQ = {
     type: "input",
     name: "username",
@@ -59,32 +60,27 @@ let extraSectionsQ = {
     choices: ["Installation", "Contributing", "Tests", "License"],
 };
 
-const secondQ = [emailQ, projectTitleQ, descriptionQ, usageQ, imageQ, technologiesQ, extraSectionsQ];
+const firstQuestionsArr = [emailQ, projectTitleQ, descriptionQ, usageQ, imageQ, technologiesQ, extraSectionsQ];
 
-// prompt first set of questions
 function init() {
+    // prompt username question
     inquirer.prompt(usernameQ).then(function (ans) {
+
+        // axios before other questions to check if username is valid
         axios.get(`https://api.github.com/users/${ans.username}`).then(function (response) {
             const { username } = ans;
             const imageURL = `${response.data.avatar_url}&s=100`;
             const profileURL = response.data.url;
 
-            inquirer.prompt(secondQ).then(function (data) {
+            // if response is valid ask next set of questions
+            inquirer.prompt(firstQuestionsArr).then(function (data) {
+                const {projectTitle, description, usage, technologies, extraSections,email,projectIMG } = data;
 
-                // desctrucure data object into variables
-                const {projectTitle,
-                    description,
-                    usage,
-                    technologies,
-                    extraSections,
-                    email,
-                    projectIMG } = data;
+                // next questions are generated based on users answer to extraSections (what other sections do you want to include?)
+                const secondQuestionsArr = followUpMod.extraQarr(extraSections);
 
-                // questions array is generated based on users answer to extraSections
-                const questionsArr = followUpMod.extraQarr(extraSections);
-
-                        // prompt user for answers to questions array
-                inquirer.prompt(questionsArr).then(function (data) {
+                // prompt user for answers to second questions array
+                inquirer.prompt(secondQuestionsArr).then(function (data) {
                     const { license, contributing, test, install } = data;
 
                     // new section instances - sections are rendered based on user picks
@@ -96,21 +92,21 @@ function init() {
                     \`\`\`
                     ${install}
                     \`\`\`
-                    ![Dependencies Shield](https://img.shields.io/david/${username}/${projectTitle})`))
+                    ![Dependencies Shield](https://img.shields.io/david/${username}/${projectTitle})`));
 
-                    // push valid sections into new sections array
+                    // push user picked sections into sections array
                     let sectionsArr = [];
                     installSection.validate(sectionsArr);
                     licenseSection.validate(sectionsArr);
                     contributionSection.validate(sectionsArr);
                     testSection.validate(sectionsArr);
-                    // console.log(sectionsArr);
 
-                    // render new sections, table of conetents, and technologies list
+                    // render new sections, additions to table of conetents, and technologies list
                     let newSections = followUpMod.renderSections(sectionsArr);
                     let toc = followUpMod.renderTOC(extraSections);
                     let techsList = renderTechs(technologies);
 
+                    // construct markdown file
                     const mdFile = dedent(`
                     # ${projectTitle}
                     ![GitHub last commit](https://img.shields.io/github/last-commit/${username}/${projectTitle}) [![Link to Repo](https://img.shields.io/badge/Link%20to%20Repo-blue.svg)](https://github.com/${username}/${projectTitle})
@@ -136,19 +132,21 @@ function init() {
                     ![user image](${imageURL})
                     `);
 
-                    // generate MD file with user input
+                    // write README file 
                     return writeFileAsync("README.md", mdFile);
                 })
             })
             .catch(function (err) {
+                // this catch is for all other callbacks
                 if (err) {
                     throw err;
                 };
             })
         })
         .catch(function(err) {
+            // this catch is for the username question
             if (err) {
-                console.log("please enter a valid username")
+                console.log("Please Enter a Valid Username")
                 init();
             }
         })

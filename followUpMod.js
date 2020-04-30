@@ -15,6 +15,7 @@ function renderTOC(arr) {
     return list;
 };
 
+// object constructor for sections
 function Section(header, body) {
     this.header = header;
     this.body = body;
