@@ -15,19 +15,31 @@ function renderTOC(arr) {
     return list;
 };
 
-// renders sections array to be passed into render sections function
-function renderSectArr(arr) {
-    var newArr = [];
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i].body == undefined ||
-            arr[i].body.includes("undefined")) {
-
+function Section(header, body) {
+    this.header = header;
+    this.body = body;
+    this.validate = function (arr) {
+        if (this.body == undefined ||
+            this.body.includes("undefined")) {
         } else {
-            newArr.push(arr[i]);
+            arr.push(this);
         }
     }
-    return newArr;
 };
+
+// renders sections array to be passed into render sections function
+// function renderSectArr(arr) {
+//     var newArr = [];
+//     for (var i = 0; i < arr.length; i++) {
+//         if (arr[i].body == undefined ||
+//             arr[i].body.includes("undefined")) {
+
+//         } else {
+//             newArr.push(arr[i]);
+//         }
+//     }
+//     return newArr;
+// };
 
 // renders sections in readme
 function renderSections(arr) {
@@ -78,4 +90,4 @@ function extraQarr(arr) {
     return questionsArr;
 };
 
-module.exports = {renderTOC, renderSections, extraQarr, renderSectArr};
+module.exports = {renderTOC, renderSections, extraQarr, Section};

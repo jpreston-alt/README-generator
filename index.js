@@ -17,37 +17,37 @@ inquirer
             name: "username",
             message: "What is your GitHub username? "
         },
-        {
-            type: "input",
-            name: "email",
-            message: "What is your email? "
-        },
+        // {
+        //     type: "input",
+        //     name: "email",
+        //     message: "What is your email? "
+        // },
         {
             type: "input",
             name: "projectTitle",
             message: "What is the name of your project repository? "
         },
-        {
-            type: "input",
-            name: "description",
-            message: "Please write a description of your project: "
-        },
-        {
-            type: "input",
-            name: "install",
-            message: "What command should be run to install dependencies? ",
-            default: "npm install"
-        },
-        {
-            type: "input",
-            name: "usage",
-            message: "What does the user need to know about using the repo? "
-        },
-        {
-            type: "input",
-            name: "projectIMG",
-            message: "Please include an image or a gif. Enter the filepath here: "
-        },
+        // {
+        //     type: "input",
+        //     name: "description",
+        //     message: "Please write a description of your project: "
+        // },
+        // {
+        //     type: "input",
+        //     name: "install",
+        //     message: "What command should be run to install dependencies? ",
+        //     default: "npm install"
+        // },
+        // {
+        //     type: "input",
+        //     name: "usage",
+        //     message: "What does the user need to know about using the repo? "
+        // },
+        // {
+        //     type: "input",
+        //     name: "projectIMG",
+        //     message: "Please include an image or a gif. Enter the filepath here: "
+        // },
         {
             type: 'checkbox',
             message: 'Which technologies did you use?',
@@ -84,21 +84,30 @@ inquirer
                 const { license, contributing, test, badges } = data;
 
                 // new section object constructor
-                function Section(header, body) {
-                    this.header = header;
-                    this.body = body;
-                };
+                // function Section(header, body) {
+                //     this.header = header;
+                //     this.body = body;
+                //     this.validate = function(arr) {
+                //         if (this.body == undefined ||
+                //             this.body.includes("undefined")) {
+                //         } else {
+                //             arr.push(this);
+                //         }
+                //     }
+                // };
 
                 // new section instances - sections are rendered based on user picks
-                const licenseSection = new Section("License", dedent(`This project is licensed under the ${license} license. \n\n ![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`));
-                const contributionSection = new Section("Contribution", contributing);
-                const testSection = new Section("Tests", dedent(`To run tests, run the following command: \n \`\`\` \n ${test} \n \`\`\` `));
+                const licenseSection = new followUpMod.Section("License", dedent(`This project is licensed under the ${license} license. \n\n ![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`));
+                const contributionSection = new followUpMod.Section("Contribution", contributing);
+                const testSection = new followUpMod.Section("Tests", dedent(`To run tests, run the following command: \n \`\`\` \n ${test} \n \`\`\` `));
 
-                let sectionsArr = [contributionSection, licenseSection, testSection];
+                let sectionsArr = [];
+                licenseSection.validate(sectionsArr);
+                contributionSection.validate(sectionsArr);
+                testSection.validate(sectionsArr);
 
                 // render new sections, table of conetents, and technologies list
-                let filterSectArr = followUpMod.renderSectArr(sectionsArr);
-                let newSections = followUpMod.renderSections(filterSectArr);
+                let newSections = followUpMod.renderSections(sectionsArr);
                 let toc = followUpMod.renderTOC(extraSections);
 
                 let techsList = renderTechs(technologies);
