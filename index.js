@@ -85,7 +85,7 @@ function init() {
 
                     // new section instances - sections are rendered based on user picks
                     const licenseSection = new followUpMod.Section("License", dedent(`This project is licensed under the ${license} license. \n\n ![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`));
-                    const contributionSection = new followUpMod.Section("Contribution", contributing);
+                    const contributionSection = new followUpMod.Section("Contributing", contributing);
                     const testSection = new followUpMod.Section("Tests", dedent(`To run tests, run the following command: \n \`\`\` \n ${test} \n \`\`\` `));
                     const installSection = new followUpMod.Section("Installation", dedent(`
                     To install necessary dependencies, run the following command:
