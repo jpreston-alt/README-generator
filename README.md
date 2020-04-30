@@ -3,7 +3,7 @@
 
 
 ## Description
-Generates README based on user input
+undefined
 
 ## Table of Contents
 * [Usage](#usage)
@@ -16,9 +16,9 @@ Generates README based on user input
 
 
 ## Usage
-Answer prompted questions
+undefined
 
-![](./assets/code-quiz.gif)
+![](undefined)
 
 ## Technologies
 * JavaScript
@@ -40,7 +40,7 @@ This project is licensed under the MIT license.
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Contribution
-hit me up
+test
 
 ## Tests
 To run tests, run the following command: 

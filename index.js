@@ -15,7 +15,20 @@ inquirer
         {
             type: "input",
             name: "username",
-            message: "What is your GitHub username? "
+            message: "What is your GitHub username? ",
+            // validate: function (ans) {
+            //     axios
+            //         .get(`https://api.github.com/users/${ans}`)
+            //         .then(function (response) {
+            //             // console.log(response.status);
+            //             if (response.status === 200) {
+            //                 console.log(typeof response.status);
+            //                 return true;
+            //             } else {
+            //                 return "Please enter a valid username"
+            //             }
+            //         })
+            // }
         },
         {
             type: "input",
@@ -27,21 +40,21 @@ inquirer
             name: "projectTitle",
             message: "What is the name of your project repository? "
         },
-        {
-            type: "input",
-            name: "description",
-            message: "Please write a description of your project: "
-        },
-        {
-            type: "input",
-            name: "usage",
-            message: "What does the user need to know about using the repo? "
-        },
-        {
-            type: "input",
-            name: "projectIMG",
-            message: "Please include an image or a gif. Enter the filepath here: "
-        },
+        // {
+        //     type: "input",
+        //     name: "description",
+        //     message: "Please write a description of your project: "
+        // },
+        // {
+        //     type: "input",
+        //     name: "usage",
+        //     message: "What does the user need to know about using the repo? "
+        // },
+        // {
+        //     type: "input",
+        //     name: "projectIMG",
+        //     message: "Please include an image or a gif. Enter the filepath here: "
+        // },
         {
             type: 'checkbox',
             message: 'Which technologies did you use?',
@@ -93,7 +106,7 @@ inquirer
                 licenseSection.validate(sectionsArr);
                 contributionSection.validate(sectionsArr);
                 testSection.validate(sectionsArr);
-                console.log(sectionsArr);
+                // console.log(sectionsArr);
 
                 // render new sections, table of conetents, and technologies list
                 let newSections = followUpMod.renderSections(sectionsArr);
