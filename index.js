@@ -20,17 +20,15 @@ let usernameQ = {
 // prompt first set of questions
 function getValidUsername() {
     inquirer.prompt(usernameQ).then(function (ans) {
-        console.log(ans.username);
+        // console.log(ans.username);
         axios
             .get(`https://api.github.com/users/${ans.username}`)
-            .then(function (response, err) {
-                // console.log(response.status);
+            .then(function (response) {
+                    const { username } = ans;
+                    return username;
+            }).catch(function(err) {
                 if (err) {
-                    const {username} = ans;
-                    console.log(username);
-                    return;
-                } else {
-                    console.log("Please enter a valid username")
+                    console.log("please enter a valid username")
                     getValidUsername();
                 }
             })
@@ -38,6 +36,7 @@ function getValidUsername() {
 }
 
 getValidUsername();
+// console.log(username);
 
 //         {
 //             type: "input",
