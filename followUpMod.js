@@ -27,20 +27,6 @@ function Section(header, body) {
     }
 };
 
-// renders sections array to be passed into render sections function
-// function renderSectArr(arr) {
-//     var newArr = [];
-//     for (var i = 0; i < arr.length; i++) {
-//         if (arr[i].body == undefined ||
-//             arr[i].body.includes("undefined")) {
-
-//         } else {
-//             newArr.push(arr[i]);
-//         }
-//     }
-//     return newArr;
-// };
-
 // renders sections in readme
 function renderSections(arr) {
     let list = "";
@@ -79,8 +65,17 @@ function extraQarr(arr) {
         message: "What does the user need to know about contributing to the repo? "
     };
 
+    let installQ = {
+            type: "input",
+            name: "install",
+            message: "What command should be run to install dependencies? ",
+            default: "npm install"
+    };
+
     if (arr.includes("License")) {
         questionsArr.push(licenseQ);
+    } if (arr.includes("Installation")) {
+        questionsArr.push(installQ);
     } if (arr.includes("Contributing")) {
         questionsArr.push(contributingQ);
     } if (arr.includes("Tests")) {

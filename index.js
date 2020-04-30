@@ -17,37 +17,31 @@ inquirer
             name: "username",
             message: "What is your GitHub username? "
         },
-        // {
-        //     type: "input",
-        //     name: "email",
-        //     message: "What is your email? "
-        // },
+        {
+            type: "input",
+            name: "email",
+            message: "What is your email? "
+        },
         {
             type: "input",
             name: "projectTitle",
             message: "What is the name of your project repository? "
         },
-        // {
-        //     type: "input",
-        //     name: "description",
-        //     message: "Please write a description of your project: "
-        // },
-        // {
-        //     type: "input",
-        //     name: "install",
-        //     message: "What command should be run to install dependencies? ",
-        //     default: "npm install"
-        // },
-        // {
-        //     type: "input",
-        //     name: "usage",
-        //     message: "What does the user need to know about using the repo? "
-        // },
-        // {
-        //     type: "input",
-        //     name: "projectIMG",
-        //     message: "Please include an image or a gif. Enter the filepath here: "
-        // },
+        {
+            type: "input",
+            name: "description",
+            message: "Please write a description of your project: "
+        },
+        {
+            type: "input",
+            name: "usage",
+            message: "What does the user need to know about using the repo? "
+        },
+        {
+            type: "input",
+            name: "projectIMG",
+            message: "Please include an image or a gif. Enter the filepath here: "
+        },
         {
             type: 'checkbox',
             message: 'Which technologies did you use?',
@@ -58,7 +52,7 @@ inquirer
             type: 'checkbox',
             message: "What other sections would you like to include in your README? (Press ENTER if you don't want to include any)",
             name: 'extraSections',
-            choices: ["Contributing", "Tests", "License"],
+            choices: ["Installation", "Contributing", "Tests", "License"],
         }
     ])
     .then(function(data){
@@ -67,7 +61,6 @@ inquirer
         const { username,
         projectTitle,
         description,
-        install,
         usage,
         technologies,
         extraSections,
@@ -81,35 +74,30 @@ inquirer
         inquirer
             .prompt(questionsArr)
             .then(function (data) {
-                const { license, contributing, test, badges } = data;
-
-                // new section object constructor
-                // function Section(header, body) {
-                //     this.header = header;
-                //     this.body = body;
-                //     this.validate = function(arr) {
-                //         if (this.body == undefined ||
-                //             this.body.includes("undefined")) {
-                //         } else {
-                //             arr.push(this);
-                //         }
-                //     }
-                // };
+                const { license, contributing, test, install } = data;
 
                 // new section instances - sections are rendered based on user picks
                 const licenseSection = new followUpMod.Section("License", dedent(`This project is licensed under the ${license} license. \n\n ![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`));
                 const contributionSection = new followUpMod.Section("Contribution", contributing);
                 const testSection = new followUpMod.Section("Tests", dedent(`To run tests, run the following command: \n \`\`\` \n ${test} \n \`\`\` `));
+                const installSection = new followUpMod.Section("Installation", dedent(`
+                        To install necessary dependencies, run the following command:
+                        \`\`\`
+                        ${install}
+                        \`\`\`
+                        ![Dependencies Shield](https://img.shields.io/david/${username}/${projectTitle})`))
 
+                // push valid sections into new sections array
                 let sectionsArr = [];
+                installSection.validate(sectionsArr);
                 licenseSection.validate(sectionsArr);
                 contributionSection.validate(sectionsArr);
                 testSection.validate(sectionsArr);
+                console.log(sectionsArr);
 
                 // render new sections, table of conetents, and technologies list
                 let newSections = followUpMod.renderSections(sectionsArr);
                 let toc = followUpMod.renderTOC(extraSections);
-
                 let techsList = renderTechs(technologies);
 
                 // use axios to generate user photo and link from gitHub with username
@@ -128,20 +116,10 @@ inquirer
                         ${description}
 
                         ## Table of Contents
-                        * [Technologies](#technologies)
-                        * [Installation](#installation)
                         * [Usage](#usage)
+                        * [Technologies](#technologies)
                         * [Questions](#questions)
                         ${toc}
-
-                        ## Installation
-                        To install necessary dependencies, run the following command:
-
-                        \`\`\`
-                        ${install}
-                        \`\`\`
-
-                        ![Dependencies Shield](https://img.shields.io/david/${username}/${projectTitle})
 
                         ## Usage
                         ${usage}\n
