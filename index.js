@@ -60,7 +60,8 @@ let extraSectionsQ = {
     choices: ["Installation", "Contributing", "Tests", "License"],
 };
 
-const firstQuestionsArr = [emailQ, projectTitleQ, descriptionQ, usageQ, imageQ, technologiesQ, extraSectionsQ];
+// const firstQuestionsArr = [emailQ, projectTitleQ, descriptionQ, usageQ, imageQ, technologiesQ, extraSectionsQ];
+const firstQuestionsArr = [technologiesQ, extraSectionsQ];
 
 function init() {
     // prompt username question
