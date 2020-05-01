@@ -29,7 +29,7 @@ function init() {
         .then(function (response) {
             username = response.data.login;
             imageURL = `${response.data.avatar_url}&s=100`;
-            profileURL = response.data.url;
+            profileURL = response.data.html_url;
 
             // if response is valid ask next set of questions
             return inquirer.prompt(questions.firstQuestionsArr)
