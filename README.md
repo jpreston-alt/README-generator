@@ -4,7 +4,12 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/jpreston-alt/README-Generator)
 
 ## Description
-genrates a readme
+A well crafted README is essential to any project, but we all know we’d rather spend more time improving our projects themselves, and less time fussing with our README’s. This application streamlines the README writing process by providing the user with a command line interface application that generates a quality README (like this one!) simply by answering the prompted questions.
+
+The user is first prompted to answer questions about their project that are essential to any README. Since not all projects require the same kind of README, the user is then given a choice of other sections they would like to include based on the need of their project. Optional sections include: License, Installation, Credits, Contribution, and Tests. Based on this answer, they are then prompted with follow up questions. After the last question is answered, their README.md file is generated and they are ready to roll. Time to start showing it off!
+
+Building this program taught me so much about working with server-side JavaScript in Node.js. I got comfortable creating and working with modules, and can definitely see the benefit of breaking your code up into smaller, more manageable pieces. This project also taught me about the wonderful world of node package manager and how to utilizing it’s different modules. This program primarily uses inquirer for prompting users on the command line, and axios for requesting information from GitHubs' API about the user. Since this program relies so heavily on requested information that could return to us at any time, it forced me to learn a lot about asynchronous programing and working with callbacks and promises.
+
 ## Table of Contents
 * [Usage](#usage)
 * [Technologies](#technologies)
@@ -15,16 +20,30 @@ genrates a readme
 * [License](#License)
 * [Credits](#Credits)
 
-## Usage
-answer prompted questions
 
-![](./assets/code-quiz.gif)
+## Usage
+1. Open README-Generator in your favorite code editor.
+2. From your terminal navigate to README-Generator and run node index.js.
+3. Enter your GitHub user name (must enter a valid username to continue).
+4. Answer the following prompted questions about your project.
+5. Make sure you enter a valid repository name in order for badges and links to work.
+6. Choose between optional sections to add (License, Tests, Contributions, Installation, Credits)
+7. Answer the followup questions based on your selection.
+8. Preview and make small changes in markdown as needed.
+9. Add your shiny new README to your project repository!
+
+![Project Image or Gif](./assets/readme.gif)
+![Project Image](./assets/readme.png)
+
 ## Technologies
 * JavaScript
 * Node.js
 * Axios
+* npm
+* Inquirer.js
 
 ![GitHub top language](https://img.shields.io/github/languages/top/jpreston-alt/README-Generator)
+
 
 ## Installation
 To install necessary dependencies, run the following command: 
@@ -37,7 +56,7 @@ npm install
 This project is licensed under the MIT license.
 
 ## Contributing
-Hit me up
+Contact me on GitHub about contribting. Contact information available at the bottom of this README.
 
 ## Tests
 To run tests, run the following command: 
@@ -46,11 +65,12 @@ npm test
 ```
 
 ## Credits
-* [Shields.io}(https://shields.io
+* [Shields.io](https://github.com/badges/shields)
+* [Inquirer.js](https://www.npmjs.com/package/inquirer)
+* [Axios](https://github.com/axios/axios)
 
 
 ## Questions
-​
 If you have any questions about the repo, open an issue or contact me:
 
 On GitHub: [jpreston-alt](https://github.com/jpreston-alt) | Via Email: joannappreston@gmail.com

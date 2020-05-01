@@ -80,18 +80,23 @@ function init() {
             
             ## Description
             ${description}
+
             ## Table of Contents
             * [Usage](#usage)
             * [Technologies](#technologies)
             * [Questions](#questions)
             ${toc}
+
             ## Usage
             ${usage}\n
-            ![](${projectIMG})
+            ![Project Image or Gif](${projectIMG})
+
             ## Technologies
             ${techsList} 
             ![GitHub top language](https://img.shields.io/github/languages/top/${username}/${projectTitle})\n
+
             ${newSections}
+
             ## Questions
 ​
             If you have any questions about the repo, open an issue or contact me:\n
@@ -100,7 +105,7 @@ function init() {
             `);
 
         // write README file 
-        return writeFileAsync("README.md", mdFile);
+        return writeFileAsync("genREADME.md", mdFile);
     })
     .catch(function (err) {
         // if error occured while prompting username

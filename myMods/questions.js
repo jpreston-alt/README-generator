@@ -40,7 +40,7 @@ let technologiesQ = {
     type: 'checkbox',
     message: 'Which technologies did you use?',
     name: 'technologies',
-    choices: ["HTML", "CSS", "JavaScript", "jQuery", "Bootstrap", "Bulma", "Node.js", "AJAX", "Axios", "Jest"]
+    choices: ["HTML", "CSS", "JavaScript", "jQuery", "Bootstrap", "Bulma", "Node.js", "AJAX", "Axios", "Jest", "npm", "Inquirer.js"]
 };
 
 let extraSectionsQ = {
@@ -81,11 +81,6 @@ let installQ = {
     default: "npm install"
 };
 
-// List your collaborators, if any, with links to their GitHub profiles.
-
-// If you used any third - party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-// If you followed tutorials, include links to those here as well.
 let creditsQ = {
     type: "input",
     name: "credits",
