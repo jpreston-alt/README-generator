@@ -50,13 +50,14 @@ function init() {
             return inquirer.prompt(secondQuestionsArr)
         })
         .then(function (data) {
-            const { license, contributing, test, install } = data;
+            const { license, contributing, test, install, credits } = data;
 
             // new section instances
             const licenseSection = new render.Section("License", `This project is licensed under the ${license} license.`);
             const contributionSection = new render.Section("Contributing", contributing);
             const testSection = new render.Section("Tests", dedent(`To run tests, run the following command: \n \`\`\` \n ${test} \n \`\`\` `));
             const installSection = new render.Section("Installation", dedent(`To install necessary dependencies, run the following command: \n \`\`\` \n ${install} \n \`\`\` \n ![Dependencies Shield](https://img.shields.io/david/${username}/${projectTitle})`));
+            const creditsSection = new render.Section("Credits", credits)
 
             // push user picked sections into sections array - only push sections that aren't undefined (user didn't want them)
             let sectionsArr = [];
@@ -64,6 +65,7 @@ function init() {
             licenseSection.validate(sectionsArr);
             contributionSection.validate(sectionsArr);
             testSection.validate(sectionsArr);
+            creditsSection.validate(sectionsArr);
 
             // render new sections, additions to table of conetents, and technologies list
             let newSections = render.renderSections(sectionsArr);

@@ -15,6 +15,8 @@ function extraQarr(arr) {
         questionsArr.push(questions.contributingQ);
     } if (arr.includes("Tests")) {
         questionsArr.push(questions.testQ);
+    } if (arr.includes("Credits")) {
+        questionsArr.push(questions.creditsQ);
     };
 
     return questionsArr;

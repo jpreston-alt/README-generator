@@ -47,7 +47,7 @@ let extraSectionsQ = {
     type: 'checkbox',
     message: "What other sections would you like to include in your README? (Press ENTER if you don't want to include any)",
     name: 'extraSections',
-    choices: ["Installation", "Contributing", "Tests", "License"],
+    choices: ["Installation", "Contributing", "Tests", "License", "Credits"],
 };
 
 const firstQuestionsArr = [emailQ, projectTitleQ, descriptionQ, usageQ, imageQ, technologiesQ, extraSectionsQ];
@@ -81,5 +81,16 @@ let installQ = {
     default: "npm install"
 };
 
+// List your collaborators, if any, with links to their GitHub profiles.
 
-module.exports = {usernameQ, firstQuestionsArr, licenseQ, testQ, contributingQ, installQ};
+// If you used any third - party assets that require attribution, list the creators with links to their primary web presence in this section.
+
+// If you followed tutorials, include links to those here as well.
+let creditsQ = {
+    type: "input",
+    name: "credits",
+    message: "Please list any collaborators, third - party assets that require attribution, or tutorials you would like to acknowlege here. "
+};
+
+
+module.exports = {usernameQ, firstQuestionsArr, licenseQ, testQ, contributingQ, installQ, creditsQ};

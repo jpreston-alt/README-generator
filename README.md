@@ -4,7 +4,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/jpreston-alt/README-Generator)
 
 ## Description
-Generates a readme based on user input
+genrates a readme
 ## Table of Contents
 * [Usage](#usage)
 * [Technologies](#technologies)
@@ -13,6 +13,7 @@ Generates a readme based on user input
 * [Contributing](#Contributing)
 * [Tests](#Tests)
 * [License](#License)
+* [Credits](#Credits)
 
 ## Usage
 answer prompted questions
@@ -43,6 +44,9 @@ To run tests, run the following command:
 ``` 
 npm test 
 ```
+
+## Credits
+* [Shields.io}(https://shields.io
 
 
 ## Questions
