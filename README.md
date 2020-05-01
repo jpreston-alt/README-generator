@@ -1,8 +1,10 @@
-# readme-generator
-![GitHub last commit](https://img.shields.io/github/last-commit/jpreston-alt/readme-generator) [![Link to Repo](https://img.shields.io/badge/Link%20to%20Repo-blue.svg)](https://github.com/jpreston-alt/readme-generator)
+# Readme-Generator
+[Link to Repo](https://github.com/jpreston-alt/Readme-Generator) 
+
+![GitHub last commit](https://img.shields.io/github/last-commit/jpreston-alt/Readme-Generator)
 
 ## Description
-asdf
+Generates a README based on user input.
 ## Table of Contents
 * [Usage](#usage)
 * [Technologies](#technologies)
@@ -13,35 +15,28 @@ asdf
 * [License](#License)
 
 ## Usage
-adsf
+Answer the prompted questions.
 
-![](asdf)
+![](./assets/code-quiz.gif)
 ## Technologies
-* HTML
-* CSS
 * JavaScript
-* jQuery
-* Bootstrap
-* Bulma
 * Node.js
-* AJAX
+* Axios
 
-![GitHub top language](https://img.shields.io/github/languages/top/jpreston-alt/readme-generator)
+![GitHub top language](https://img.shields.io/github/languages/top/jpreston-alt/Readme-Generator)
 
 ## Installation
-To install necessary dependencies, run the following command:
-```
-npm install
-```
-![Dependencies Shield](https://img.shields.io/david/jpreston-alt/readme-generator)
+To install necessary dependencies, run the following command: 
+``` 
+npm install 
+``` 
+![Dependencies Shield](https://img.shields.io/david/jpreston-alt/Readme-Generator)
 
 ## License
-This project is licensed under the MIT license. 
-
-![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+This project is licensed under the MIT license.
 
 ## Contributing
-
+Hit me up.
 
 ## Tests
 To run tests, run the following command: 
@@ -54,6 +49,6 @@ npm test
 ​
 If you have any questions about the repo, open an issue or contact me:
 
-On GitHub: [jpreston-alt](https://api.github.com/users/jpreston-alt) | Via Email: joanna
+On GitHub: [jpreston-alt](https://api.github.com/users/jpreston-alt) | Via Email: joannappreston@gmail.com
 
 ![user image](https://avatars1.githubusercontent.com/u/58855401?v=4&s=100)
