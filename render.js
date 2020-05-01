@@ -1,5 +1,4 @@
-// this module contains functions pertaining to follow up questions
-// user is asked which other sections they would like to include, then sections are rendered and other questions are prompted based on that answer.
+
 
 // renders table of contents to include new sections
 function renderTOC(arr) {
@@ -86,4 +85,22 @@ function extraQarr(arr) {
     return questionsArr;
 };
 
-module.exports = {renderTOC, renderSections, extraQarr, Section};
+// renders technologies list
+function renderTechs(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = `* ${arr[i]}\n`
+    };
+    let list = arr.join("");
+    return list;
+};
+
+// replaces spaces with dashes from user input
+function noSpaces(str) {
+    console.log(str);
+    const trimStr = str.trim();
+    const newStr = trimStr.replace(" ", "-");
+
+    return newStr;
+};
+
+module.exports = {renderTOC, renderSections, extraQarr, Section, noSpaces, renderTechs};
