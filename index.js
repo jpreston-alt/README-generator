@@ -99,13 +99,13 @@ function init() {
 
             ## Questions
 ​
-            If you have any questions about the repo, open an issue or contact me:\n
+            If you have any questions about the repo, please contact me:\n
             On GitHub: [${username}](${profileURL}) | Via Email: ${email}\n
             ![user image](${imageURL})
             `);
 
         // write README file 
-        return writeFileAsync("genREADME.md", mdFile);
+        return writeFileAsync("gen-README.md", mdFile);
     })
     .catch(function (err) {
         // if error occured while prompting username
