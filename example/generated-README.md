@@ -23,7 +23,7 @@ This is a mock README generated with README-Generator. README-Generator is a com
  * Answer followup questions 
  * README is generated
 
-![Project Image or Gif](./assets/readme.gif)
+![Project Image or Gif](../assets/readme.gif)
 
 ## Technologies
 * JavaScript
