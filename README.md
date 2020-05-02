@@ -25,8 +25,8 @@ Building this program taught me so much about working with server-side JavaScrip
 1. Enter your GitHub user name (must enter a valid username to continue).
 1. Answer the following prompted questions about your project.
 1. Make sure you enter a valid repository name in order for badges and links to work.
-1. Choose between optional sections to add (License, Tests, Contributions, Installation, Credits)
-1. Answer the followup questions based on your selection
+1. Choose between optional sections to add (License, Tests, Contributions, Installation, Credits).
+1. Answer the follow up questions based on your selection.
 1. README will be generated and success message will appear.
 1. Preview and make small changes in markdown as needed.
 1. Add your shiny new README to your project repository!
