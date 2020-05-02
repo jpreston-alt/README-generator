@@ -34,6 +34,8 @@ Building this program taught me so much about working with server-side JavaScrip
 1. Add your shiny new README to your project repository!
 
 ![Project Image or Gif](./assets/readme.gif)
+
+## Prompted Questions Include: 
 ![Project Image](./assets/readme.png)
 
 ## Technologies
