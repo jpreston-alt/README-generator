@@ -39,7 +39,7 @@ Building this program taught me so much about working with server-side JavaScrip
 ## Finished Product
 ![Project Image or Gif](./assets/readme.gif)
 
-This README was generated with README-Generator. For an example that includes all required sections [click here](./example/generated-README.md).
+This README was generated with README-Generator. For an example that includes all required and optional sections [click here](./example/generated-README.md).
 
 ## Technologies
 * JavaScript
