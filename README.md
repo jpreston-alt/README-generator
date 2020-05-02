@@ -61,15 +61,6 @@ npm install
 ## License
 This project is licensed under the MIT license.
 
-## Contributing
-Contact me on GitHub about contribting. Contact information available at the bottom of this README.
-
-## Tests
-To run tests, run the following command: 
-``` 
-npm test 
-```
-
 ## Credits
 * [Shields.io](https://github.com/badges/shields)
 * [Inquirer.js](https://www.npmjs.com/package/inquirer)
