@@ -14,8 +14,6 @@ Building this program taught me so much about working with server-side JavaScrip
 * [Technologies](#technologies)
 * [Questions](#questions)
 * [Installation](#Installation)
-* [Contributing](#Contributing)
-* [Tests](#Tests)
 * [License](#License)
 * [Credits](#Credits)
 
