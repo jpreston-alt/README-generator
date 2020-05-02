@@ -33,10 +33,13 @@ Building this program taught me so much about working with server-side JavaScrip
 1. Preview and make small changes in markdown as needed.
 1. Add your shiny new README to your project repository!
 
-![Project Image or Gif](./assets/readme.gif)
-
 ## Prompted Questions Include: 
 ![Project Image](./assets/readme.png)
+
+## Finished Product
+![Project Image or Gif](./assets/readme.gif)
+
+This README was generated with README-Generator. For an example that includes all required sections [click here](./example/generated-README.md).
 
 ## Technologies
 * JavaScript
