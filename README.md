@@ -1,5 +1,4 @@
-# README-Generator
-[Link to Repo](https://github.com/jpreston-alt/README-Generator) 
+# [README-Generator](https://github.com/jpreston-alt/README-Generator)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/jpreston-alt/README-Generator)
 

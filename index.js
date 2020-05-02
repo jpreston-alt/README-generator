@@ -74,8 +74,7 @@ function init() {
 
             // construct markdown file
             const mdFile = dedent(`
-            # ${projectTitle}
-            [Link to Repo](https://github.com/${username}/${projectTitle}) \n
+            # [${projectTitle}](https://github.com/${username}/${projectTitle}) \n
             ![GitHub last commit](https://img.shields.io/github/last-commit/${username}/${projectTitle})
             
             ## Description
