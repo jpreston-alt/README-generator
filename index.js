@@ -6,8 +6,8 @@ const axios = require("axios");
 const dedent = require("dedent");
 
 // require my modules
-const render = require("./myMods/render");
-const questions = require("./myMods/questions");
+const render = require("./utils/render");
+const questions = require("./utils/questions");
 
 // create promises
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -104,7 +104,7 @@ function init() {
             `);
 
         // write README file 
-        return writeFileAsync("gen-README.md", mdFile);
+        return writeFileAsync("gen-README.md", mdFile).then(() => console.log("README was successfully created!"));
     })
     .catch(function (err) {
         // if error occured while prompting username
