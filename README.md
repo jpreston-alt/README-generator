@@ -35,9 +35,12 @@ Building this program taught me so much about working with server-side JavaScrip
 ![Project Image](./assets/readme.png)
 
 ## Finished Product
-![Project Image or Gif](./assets/readme.gif)
 
-This README was generated with README-Generator. For an example that includes all required and optional sections [click here](./example/generated-README.md).
+View a full video of the application [here](https://drive.google.com/file/d/1M2ox4P1jRqctpaC0oQT-gg4Gknww8ZRW/view).
+
+This README that you are reading right now was generated with README-Generator. For an example that includes all required and optional sections [click here](./example/generated-README.md).
+
+![Project Image or Gif](./assets/readme.gif)
 
 ## Technologies
 * JavaScript
